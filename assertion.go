@@ -27,7 +27,7 @@ func (a *Assertion) clone() *Assertion {
 	return &na
 }
 
-// New returns a new [Assertion] using a instance of [*testing.T].
+// New returns a new [Assertion] using an instance of [*testing.T].
 func New(t T, opts ...cmp.Option) *Assertion {
 	return &Assertion{
 		t:    t,

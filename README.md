@@ -16,7 +16,7 @@ import (
 )
 
 func TestSomething_Simple(t *testing.T) {
-    eqtest.Equal(t, "hello", "world")
+    eqtest.Equal(t, "hello", "world") // This should fail the test.
 }
 
 func TestSomething_WithNew(t *testing.T) {
@@ -57,4 +57,24 @@ This will be useful if an assertion needs a specific filter that doesn't needed 
 eqtest.New(t).Equal(expected, actual,
     cmpopts.IgnoreFields(MyStruct{}, "FieldTwo"),
 )
+```
+
+## Reusing `Assertion`'s `cmp.Option`s
+
+If there are some subtest that shares the same `cmp.Option` as the current test, the existing `Assertion` can be cloned easily with a different `*testing.T` by calling `Assertion.Using`:
+
+```go
+func TestSomething(t *testing.T) {
+    eqt := eqtest.New(t,
+        cmpopts.SomeOption(...),
+        cmpopts.SomeOption(...),
+    )
+
+    t.Run("subtest with identical cmp options", func(t *testing.T) {
+        eqt := eqt.With(t)
+
+        // Now the eqt will refer to the subtest t instead of the parent t.
+        eqt.Equal(...)
+    })
+}
 ```
