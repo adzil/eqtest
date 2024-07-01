@@ -1,0 +1,7 @@
+linters-settings:
+  errcheck:
+    exclude-functions:
+      - (*github.com/adzil/eqtest/internal/indentstr.Builder).Write
+      - (*github.com/adzil/eqtest/internal/indentstr.Builder).WriteByte
+      - (*github.com/adzil/eqtest/internal/indentstr.Builder).WriteRune
+      - (*github.com/adzil/eqtest/internal/indentstr.Builder).WriteString
