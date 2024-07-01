@@ -59,9 +59,9 @@ eqtest.New(t).Equal(expected, actual,
 )
 ```
 
-## Reusing `Assertion`'s `cmp.Option`s
+## Reusing `cmp.Option`s from existing `Assertion`
 
-If there are some subtest that shares the same `cmp.Option` as the current test, the existing `Assertion` can be cloned easily with a different `*testing.T` by calling `Assertion.Using`:
+If there are subtests that sharing the same `cmp.Option` as the current test, the existing `Assertion` can be cloned easily using a different `*testing.T` by calling `Assertion.Using`:
 
 ```go
 func TestSomething(t *testing.T) {
