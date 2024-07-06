@@ -1,0 +1,30 @@
+name: Go
+
+on:
+  - push
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+      - name: Lint Go Packages
+        uses: golangci/golangci-lint-action@v6
+        with:
+          version: v1.59
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+      - name: Test Go Packages
+        run: |
+          go test -v -cover ./...
