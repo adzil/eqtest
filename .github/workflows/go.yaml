@@ -13,8 +13,9 @@ jobs:
         with:
           go-version-file: go.mod
       - name: Lint Go Packages
-        run: |
-          go run github.com/golangci/golangci-lint/cmd/golangci-lint@v1.59.1 run ./...
+        uses: golangci/golangci-lint-action@v6
+        with:
+          version: v1.59
 
   test:
     runs-on: ubuntu-latest
