@@ -1,0 +1,25 @@
+name: Go
+
+on:
+  - push
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Go
+        uses: actions/setup-go@v5
+      - name: Lint Go Packages
+        run: |
+          go run github.com/golangci/golangci-lint/cmd/golangci-lint@v1.59.1 run ./...
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Go
+        uses: actions/setup-go@v5
+      - name: Test Go Packages
+        run: |
+          go test -v -cover ./...

@@ -1,3 +1,6 @@
+linters:
+  fast: true
+
 linters-settings:
   errcheck:
     exclude-functions:
