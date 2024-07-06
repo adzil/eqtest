@@ -1,5 +1,8 @@
 # Eqtest - Equality test assertions with go-cmp
 
+[![Go Reference](https://pkg.go.dev/badge/github.com/adzil/eqtest.svg)](https://pkg.go.dev/github.com/adzil/eqtest)
+[![codecov](https://codecov.io/github/adzil/eqtest/graph/badge.svg?token=O54SMZGI1T)](https://codecov.io/github/adzil/eqtest)
+
 Eqtest provides equality test assertions API using go-cmp. It is not designed to compete or replace existing assertion frameworks such as testify, but rather to complement where it lacks such as proper equality comparison for complex types.
 
 ## Quick Start
